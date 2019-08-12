@@ -28,12 +28,12 @@ COL = 16
 size = (w,h)
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
-bomb_image = pygame.image.load("Images/bomb.pngImages/)
+bomb_image = pygame.image.load("Images/bomb.png")
 zero = pygame.image.load("Images/0.png")
 one = pygame.image.load("Images/1.png")
 two = pygame.image.load("Images/2.png")
 three = pygame.image.load("Images/3.png")
-four= pygame.image.load("Images.4.png")
+four= pygame.image.load("Images/4.png")
 five = pygame.image.load("Images/5.png")
 six = pygame.image.load("Images/6.png")
 seven = pygame.image.load("Images/7.png")
@@ -261,12 +261,10 @@ def play():
                                  
                 ###OTHER ACTIONS####
                 elif event.button == LEFT:
-                    print(f'X : {pos[0]} || Y : {pos[1]}')
                     k = grid.position(x,y)[0]
                     l = grid.position(x,y)[1]
                     cell = grid._squares[k][l]
-                    print(f'k : {k} || l {l}  || first line : {cell._is_first_line} ||  mine around : {cell._mine_around} || has number : {cell._as_number}')
-                
+                                    
                     if cell._is_flagged == False: #can't left click on flagged cell
                         if cell._mine_around == 0 and cell._is_mine == False: #if empty cell               
                             uncover_empty_cells(k,l)
